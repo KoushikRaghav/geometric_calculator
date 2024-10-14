@@ -120,6 +120,8 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
+add_executable(calculator src/geometric_calculator.cpp)
+target_link_libraries(calculator ${catkin_LIBRARIES})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/geometric_calculator.cpp
