@@ -116,12 +116,17 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(calculator src/geometric_calculator.cpp)
-target_link_libraries(calculator ${catkin_LIBRARIES})
+catkin_package(
+  LIBRARIES geometric_calculator
+  CATKIN_DEPENDS nodelet roscpp std_msgs
+)
+
+add_executable(geometric_calculator_node src/geometric_calculator.cpp src/calculator_utils.cpp)
+target_link_libraries(geometric_calculator_node ${catkin_LIBRARIES})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/geometric_calculator.cpp
